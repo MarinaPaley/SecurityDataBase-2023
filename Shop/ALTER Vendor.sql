@@ -1,0 +1,19 @@
+ALTER TABLE vendor 
+ALTER COLUMN ID
+SET NOT NULL;
+
+ALTER TABLE vendor 
+ALTER COLUMN "Name"
+SET NOT NULL;
+
+ALTER TABLE vendor
+ADD CONSTRAINT pk_Vendor
+PRIMARY KEY (ID);
+
+ALTER TABLE vendor 
+ADD CONSTRAINT u_Vendor_Name
+UNIQUE ("Name");
+
+ALTER TABLE vendor 
+ADD CONSTRAINT ch_Vendor_Name
+CHECK (Length(Trim("Name")) > 0);

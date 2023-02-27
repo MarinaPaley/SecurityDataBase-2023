@@ -1,0 +1,29 @@
+ALTER TABLE vendor_product 
+ALTER COLUMN ID
+SET NOT NULL;
+
+ALTER TABLE vendor_product 
+ALTER COLUMN ID_Vendor
+SET NOT NULL;
+
+ALTER TABLE vendor_product 
+ALTER COLUMN ID_Product
+SET NOT NULL;
+
+ALTER TABLE vendor_product 
+ADD CONSTRAINT pk_vendor_product
+PRIMARY KEY (ID);
+
+ALTER TABLE vendor_product 
+ADD CONSTRAINT fk_vendor_product_ID_Vendor
+FOREIGN KEY (ID_Vendor)
+REFERENCES vendor(ID)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
+
+ALTER TABLE vendor_product 
+ADD CONSTRAINT fk_vendor_product_ID_Product
+FOREIGN KEY (ID_Product)
+REFERENCES Product(ID)
+ON DELETE CASCADE
+ON UPDATE CASCADE;
